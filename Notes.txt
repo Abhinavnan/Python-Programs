@@ -1,0 +1,36 @@
+cd //present working directory
+choco upgrade python -y //upgrade python
+python3 -m venv .venv //create vertiual envionment
+.venv\Scripts\activate // activate vertiual envionment
+pip3 install flask 
+pip3 install flask-sqlalchemy //database version
+pip3 freeze > requirments.txt //dependancy details
+export python api -- >
+set FLASK_APP=custom_api.py
+set FLASK_ENV=development
+flask run
+initiate db -->
+python3
+from custom_api import db, app, Drink // custom_api <- file name 
+					 Drink <- Class name
+with app.app_context():
+    db.create_all()
+drink = Drink(name="soda", description = "caramal") // add data to db
+drink // view data
+with app.app_context():
+	db.session.add(drink)
+	db.session.commit()                 // commit to db
+with app.app_context():
+	drinks = Drink.query.all()	//verify db
+	print(drinks)
+
+
+
+
+ 
+
+
+
+
+
+
